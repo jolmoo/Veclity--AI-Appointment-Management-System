@@ -100,13 +100,30 @@ This integration enables full automation of appointment management directly from
    Optimized database queries and asynchronous tasks to stay within resource limits.  
 
 ---
+## 🖼 Screenshots
+
+### 🌐 Web App
+
+| Login Screen | Calendar |
+|--------------|----------|
+| ![Login Screen WEB](screenshots/ima1.jpg) | ![Calendar WEB](screenshots/ima2.png) |
+
+### 📱 Mobile App
+
+| Login Screen | Calendar |
+|--------------|----------|
+| ![Login Screen APP](screenshots/ima3.jpg) | ![Calendar APP](screenshots/ima4.png) |
+
+### 💬 WhatsApp Chat Example
+
+![WhatsApp Chat Example](screenshots/ima5.png)  
+
+*Note: This image shows an example conversation between the AI assistant and a client on WhatsApp.*
 
 
 
 
 
-![Login Screen](screenshots/ima2.png)
-![Calendar](screenshots/ima1.jpg)
 
 
 ## 👨‍💻 Author
