@@ -112,11 +112,11 @@ This integration enables full automation of appointment management directly from
 
 | Login Screen | Calendar |
 |--------------|----------|
-| ![Login Screen APP](screenshots/ima3.jpg) | ![Calendar APP](screenshots/ima4.png) |
+| ![Login Screen APP](screenshots/ima3.jpg) | ![Calendar APP](screenshots/ima4.jpg) |
 
 ### 💬 WhatsApp Chat Example
 
-![WhatsApp Chat Example](screenshots/ima5.png)  
+![WhatsApp Chat Example](screenshots/ima5.jpg)  
 
 *Note: This image shows an example conversation between the AI assistant and a client on WhatsApp.*
 
