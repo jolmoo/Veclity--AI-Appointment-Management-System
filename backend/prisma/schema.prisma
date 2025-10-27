@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Empresa {
+  id            Int       @id @default(autoincrement())
+  nombre        String
+  direccion     String
+  telefono      String?
+  correo        String    @unique
+  contrasena    String
+  tipo          String    // Peluquería, Uñas, Restaurante...
+  creadoEn      DateTime  @default(now())
+  actualizadoEn DateTime  @updatedAt
+suscripcionActiva Boolean @default(true)
+  botActivo      Boolean  @default(true)
+qr        String?
+  empleados     Empleado[]
+  citas         Cita[]
+  pedidos       Pedido[]  // Pedidos de tacos
+}
+
+model Empleado {
+  id           Int       @id @default(autoincrement())
+  empresaId    Int
+  empresa      Empresa   @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  nombre       String
+  apellido1    String
+  apellido2    String?
+  email        String    @unique
+  telefono     String?
+  fechaIngreso DateTime
+  activo       Boolean   @default(true)
+  creadoEn     DateTime  @default(now())
+  citas        Cita[]
+}
+
+model Cita {
+  id               Int       @id @default(autoincrement())
+  empresaId        Int
+  empresa          Empresa   @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  empleadoId       Int
+  empleado         Empleado  @relation(fields: [empleadoId], references: [id], onDelete: Cascade)
+  clienteNombre    String    // Nombre del cliente en vez de relación
+  clienteTelefono  String    // Teléfono o WhatsApp del cliente
+  fechaHora        DateTime
+  duracion         Int       // minutos
+  notas            String?
+  precio           Float
+  creadoEn         DateTime  @default(now())
+}
+
+enum TipoEntrega {
+  RECOGER
+  DOMICILIO
+}
+
+enum MetodoPago {
+  TARJETA
+  EFECTIVO
+}
+
+model Pedido {
+  id              Int          @id @default(autoincrement())
+  empresaId       Int
+  empresa         Empresa      @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  clienteNombre   String       // Nombre del cliente
+  clienteTelefono String       // Número de WhatsApp o teléfono
+  descripcion     String       // Descripción del taco y complementos en una sola cadena
+  tipoEntrega     TipoEntrega  // RECOGER o DOMICILIO
+  horaRecogida    DateTime?    // Solo para RECOGER
+  direccion       String?      // Solo para DOMICILIO
+  metodoPago      MetodoPago?  // Solo para DOMICILIO
+  total           Float
+  creadoEn        DateTime     @default(now())
+}
+
