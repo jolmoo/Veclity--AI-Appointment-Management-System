@@ -101,6 +101,14 @@ This integration enables full automation of appointment management directly from
 
 ---
 
+
+
+
+
+![Login Screen](screenshots/ima2.png)
+![Calendar](screenshots/ima1.jpg)
+
+
 ## 👨‍💻 Author
 
 **Jolmo**  
